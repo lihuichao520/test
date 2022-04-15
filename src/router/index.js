@@ -18,6 +18,16 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
+  {
+    path: '/test-flex',
+    name: 'testFlex',
+    component: () => import(/* webpackChunkName: "test-flex" */ '../views/TestFlex/TestFlex.vue'),
+  },
+  {
+    path: '/drop-menu',
+    name: 'dropMenu',
+    component: () => import(/* webpackChunkName: "drop-menu" */ '../views/DropMenu/DropMenu.vue'),
+  },
 ];
 
 const router = new VueRouter({

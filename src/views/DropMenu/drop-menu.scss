@@ -1,0 +1,50 @@
+.test-flex {
+  &__tab {
+    width: 40px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  /**
+   * 方案一: justify-content: space-evenly;不具备兼容性
+   */
+  &__wrap {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    // flex-wrap: wrap;
+    background-color: red;
+  }
+
+
+   /**
+   * 方案二: 利用flex-grow,让子元素占据同样空间
+   */
+  &__wrap2 {
+    display: flex;
+    align-items: center;
+    // flex-wrap: wrap;
+    background-color: yellow;
+
+    .test-flex__tab {
+      flex: 1;
+    }
+  }
+
+  /**
+   * 方案二: 利用space-between, 父容器前后加入伪元素来解决
+   */
+   &__wrap3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // flex-wrap: wrap;
+    background-color: green;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+    }
+   }
+}
