@@ -28,6 +28,11 @@ const routes = [
     name: 'dropMenu',
     component: () => import(/* webpackChunkName: "drop-menu" */ '../views/DropMenu/DropMenu.vue'),
   },
+  {
+    path: '/middle-scroll',
+    name: 'middleScroll',
+    component: () => import(/* webpackChunkName: 'middle-scroll' */ '../views/MiddleScroll/MiddleScroll.vue'),
+  },
 ];
 
 const router = new VueRouter({
