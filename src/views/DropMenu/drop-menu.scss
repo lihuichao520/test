@@ -1,50 +1,66 @@
-.test-flex {
-  &__tab {
-    width: 40px;
-    height: 30px;
-    line-height: 30px;
-  }
+.drop-menu {
+  position: relative;
+  width: 100%;
 
-  /**
-   * 方案一: justify-content: space-evenly;不具备兼容性
-   */
   &__wrap {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    // flex-wrap: wrap;
-    background-color: red;
-  }
-
-
-   /**
-   * 方案二: 利用flex-grow,让子元素占据同样空间
-   */
-  &__wrap2 {
-    display: flex;
-    align-items: center;
-    // flex-wrap: wrap;
+    width: 100%;
+    height: 40px;
+    overflow-x: scroll;
+    overflow-y: hidden;
     background-color: yellow;
+    scrollbar-width: none; /* firefox */
+    -ms-overflow-style: none; /* IE 10+ */
 
-    .test-flex__tab {
-      flex: 1;
+    &::-webkit-scrollbar {
+      display: none; /* Chrome Safari */
     }
   }
 
-  /**
-   * 方案二: 利用space-between, 父容器前后加入伪元素来解决
-   */
-   &__wrap3 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    // flex-wrap: wrap;
-    background-color: green;
+  &__menu {
+    // padding: 0 20px;
+    font-size: 0;
+    white-space: nowrap;
+    background-color: pink;
+  }
 
-    &::before,
-    &::after {
-      content: '';
-      display: block;
+  &__item {
+    display: inline-block;
+    margin: 0 16px;
+    height: 40px;
+  }
+
+  &__item:first-child {
+    margin-left: 20px;
+  }
+
+  &__item:last-child {
+    margin-right: 20px;
+  }
+
+
+  &__mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .drop-menu__over {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 222;
     }
-   }
+  }
+
+  &__list {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 223;
+  }
 }
