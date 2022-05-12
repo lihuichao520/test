@@ -33,6 +33,11 @@ const routes = [
     name: 'middleScroll',
     component: () => import(/* webpackChunkName: 'middle-scroll' */ '../views/MiddleScroll/MiddleScroll.vue'),
   },
+  {
+    path: '/select-card',
+    name: 'selectCard',
+    component: () => import(/* webpackChunkName:  'select-card' */ '../views/SelectCard/SelectCard.vue'),
+  },
 ];
 
 const router = new VueRouter({

@@ -1,0 +1,90 @@
+/** 顶部 */
+.select-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 30px;
+  background-color: pink;
+}
+
+/**吸顶的底部*/
+.select-card__footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 40px;
+
+  .select-card__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+  }
+
+}
+
+
+
+/** 中间卡片区域样式 **/
+.select-card__card {
+  display: flex;
+  align-items: center;
+
+  .select-card__check {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+  .select-card__wrap {
+    flex: 1;
+    width: 0;
+  }
+}
+
+
+
+
+.select-card__top {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  
+
+  .select-card__img {
+    margin-right: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+
+  .select-card__info {
+    flex: 1;
+    width: 0;
+    text-align: left;
+
+    .select-card__title {
+      width: 100%;
+    }
+
+    .select-card__base {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+}
+
+.select-card__btns {
+  width: 100%;
+}
