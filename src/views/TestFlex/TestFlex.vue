@@ -40,13 +40,13 @@ export default {
           name: 'tab3',
         },
         // {
-        //   name: 'tab3',
+        //   name: 'tab4',
         // },
         // {
-        //   name: 'tab3',
+        //   name: 'tab5',
         // },
         // {
-        //   name: 'tab3',
+        //   name: 'tab6',
         // },
         // {
         //   name: 'tab3',

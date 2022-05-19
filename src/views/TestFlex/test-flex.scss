@@ -17,7 +17,7 @@
   }
 
 
-   /**
+  /**
    * 方案二: 利用flex-grow,让子元素占据同样空间
    */
   &__wrap2 {
@@ -25,8 +25,11 @@
     align-items: center;
     // flex-wrap: wrap;
     background-color: yellow;
+    // overflow-x: auto;
+    // overflow-y: hidden;
 
     .test-flex__tab {
+      // min-width: 250px;
       flex: 1;
     }
   }
@@ -34,7 +37,7 @@
   /**
    * 方案二: 利用space-between, 父容器前后加入伪元素来解决
    */
-   &__wrap3 {
+  &__wrap3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -46,5 +49,5 @@
       content: '';
       display: block;
     }
-   }
+  }
 }
