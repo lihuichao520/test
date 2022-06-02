@@ -38,6 +38,11 @@ const routes = [
     name: 'selectCard',
     component: () => import(/* webpackChunkName:  'select-card' */ '../views/SelectCard/SelectCard.vue'),
   },
+  {
+    path: '/test-ant-date-picker',
+    name: 'testDate',
+    component: () => import(/* webpackChunkName: 'test-date' */ '../views/TestDatePicker/TestDatePicker.vue'),
+  },
 ];
 
 const router = new VueRouter({
