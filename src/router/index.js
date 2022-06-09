@@ -43,6 +43,11 @@ const routes = [
     name: 'testDate',
     component: () => import(/* webpackChunkName: 'test-date' */ '../views/TestDatePicker/TestDatePicker.vue'),
   },
+  {
+    path: '/test/text',
+    name: 'testText',
+    component: () => import(/* webpackChunkName: 'test-text' */ '../views/TestText/TestText.vue'),
+  },
 ];
 
 const router = new VueRouter({
