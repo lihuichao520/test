@@ -7,6 +7,10 @@
 
     <!-- 测试三角形箭头 -->
     <div class="test-arrow"></div>
+
+    <div class="test-border-box__wrap">
+      <div class="test-border-box"></div>
+    </div>
   </div>
 </template>
 <script>
@@ -46,5 +50,22 @@ export default {
   border-width: 0 0 10px 10px;
   /* transform: skew(-10deg, -10deg); */
   transform: rotate(-45deg) skew(-10deg, -10deg);
+}
+
+// 边框
+.test-border-box__wrap {
+  margin-left: 20px;
+  border: 1px solid #febcb5;
+  border-radius: 7px;
+}
+.test-border-box {
+  margin: 0;
+  // width: 200px;
+  height: 200px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: red #d53128 #d53128 #ff665e;
+  border-radius: 6px;
+  background: #ff3f35;
 }
 </style>
