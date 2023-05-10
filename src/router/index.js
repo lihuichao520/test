@@ -48,6 +48,11 @@ const routes = [
     name: 'testText',
     component: () => import(/* webpackChunkName: 'test-text' */ '../views/TestText/TestText.vue'),
   },
+  {
+    path: '/test-ant-dynamicform',
+    name: 'dynamicform',
+    component: () => import(/* webpackChunkName: 'test-dynamic-from' */ '../views/DynamicForm/DynamicForm.vue'),
+  },
 ];
 
 const router = new VueRouter({
