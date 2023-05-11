@@ -8,6 +8,7 @@
         <label>身份证号: </label>
         <a-input type="text"  v-model="id" placeholder="请输入身份证号" @change="handleIDChange"/>
     </span>
+
   </div>
 </template>
 <script>
