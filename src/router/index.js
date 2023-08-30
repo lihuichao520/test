@@ -58,6 +58,11 @@ const routes = [
     name: 'fontSize',
     component: () => import(/* webpackChunkName: 'test-font' */ '../views/TestFont/TestFont.vue'),
   },
+  {
+    path: '/test/animation',
+    name: 'animation',
+    component: () => import(/* webpackChunkName: 'animation' */ '../views/Animation/Animation.vue'),
+  },
 ];
 
 const router = new VueRouter({
