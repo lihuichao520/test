@@ -53,6 +53,11 @@ const routes = [
     name: 'dynamicform',
     component: () => import(/* webpackChunkName: 'test-dynamic-from' */ '../views/DynamicForm/DynamicForm.vue'),
   },
+  {
+    path: '/test/font-size',
+    name: 'fontSize',
+    component: () => import(/* webpackChunkName: 'test-font' */ '../views/TestFont/TestFont.vue'),
+  },
 ];
 
 const router = new VueRouter({

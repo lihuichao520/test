@@ -1,0 +1,123 @@
+.upgrade-popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.40);
+  z-index: 1000;
+
+
+  .body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 540px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+  }
+
+  .content {
+    position: relative;
+    padding: 168px 20px 64px;
+    width: 100%;
+    min-height: 570px;
+    background: #FFFFFF;
+    border-radius: 24px;
+    box-sizing: border-box;
+
+
+
+    // .title {
+    //   margin: 0 auto;
+    //   width: 140px;
+    //   height: 46px;
+    //   text-align: center;
+    //   background: url(../../assets/common/upgrade-congratuation.png) no-repeat;
+    //   background-size: 100% 100%;
+    // }
+
+    .subtitle {
+      // padding-top: 22px;
+      min-height: 34px;
+      font-family: PingFangSC-Medium;
+      font-size: 34px;
+      color: #333333;
+      letter-spacing: 0;
+      text-align: center;
+      line-height: 36px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .lv-img {
+      margin: 46px auto 0;
+      width: 192px;
+      height: 192px;
+      border-radius: 24px;
+      box-sizing: border-box;
+    }
+
+    .tip {
+      padding-top: 39px;
+      min-height: 24px;
+      font-family: PingFangSC-Regular;
+      font-size: 24px;
+      color: #939393;
+      text-align: center;
+      line-height: 26px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .btn {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 48px;
+      font-size: 0;
+      text-align: center;
+    }
+
+    .btn-detail {
+      display: inline-block;
+      padding: 18px 116px;
+      height: 80px;
+      font-family: PingFangSC-Medium;
+      font-size: 32px;
+      color: #FF8200;
+      letter-spacing: 0;
+      text-align: center;
+      border: 1px solid #FF8200;
+      border-radius: 40px;
+      box-sizing: border-box;
+    }
+  }
+
+  .close {
+    display: inline-block;
+    margin: 80px auto 0;
+    width: 60px;
+    height: 60px;
+    background: red;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+  }
+
+
+}
+
+.icon {
+  position: absolute;
+  top: -76px;
+  left: 50%;
+  width: 540px;
+  height: 222px;
+  background: url(../../assets/upgrade-checked.png) no-repeat;
+  background-size: 100% 100%;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+}
