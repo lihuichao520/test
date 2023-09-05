@@ -25,7 +25,9 @@
   bottom: -50%;
   left: -50%;
   // background-color: red;
-  background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+  // background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 70), rgba(255, 255, 255, 0));
+
   transform: rotateZ(60deg) translate(-5em, 7.5em);
   animation: sheen 1s linear infinite;
   will-change: all;
@@ -207,3 +209,84 @@
 }
 
 // 文字切换动画
+
+// 异形
+.triangle {
+  // width: 0;
+  // height: 0;
+  // border-left: 50px solid transparent;
+  // border-right: 50px solid transparent;
+  // border-bottom: 100px solid yellowgreen;
+  // background: linear-gradient(to bottom, rgba(255, 255, 255, 70), rgba(255, 255, 255, 0));
+
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7) 50%, transparent 50%, transparent 100%);
+}
+
+.test-triangle {
+  position: relative;
+  margin-top: 100px;
+  margin-left: 100px;
+  width: 393px;
+  height: 98px;
+  line-height: 50px;
+  text-align: center;
+  // background: yellow;
+  background: url(../../assets/remind-use.png) no-repeat;
+  background-size: 100% 100%;
+  border-radius: 49px;
+  overflow: hidden;
+}
+
+.test-triangle::after {
+  content: '';
+  position: absolute;
+  top: 6px;
+  // right: -50%;
+  // bottom: -50%;
+  left: 0;
+  width: 148px;
+  height: 85px;
+  background: linear-gradient(-45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.5) 50%, transparent 50%, transparent 100%);
+  animation: lightTest 770ms linear infinite;
+}
+
+@keyframes lightTest {
+  0% {
+    left: -20px;
+    opacity: 0;
+  }
+
+  10% {
+    left: -20px;
+    opacity: 0.3;
+  }
+
+  23% {
+    opacity: 0.5;
+  }
+
+  40% {
+    opacity: 0.7;
+  }
+
+  58% {
+    left: 160px;
+    opacity: 0.2;
+  }
+
+  65% {
+    left: 260px;
+    opacity: 0.1;
+  }
+
+  78% {
+    opacity: 0;
+  }
+
+  100% {
+    left: -20px;
+    opacity: 0;
+  }
+}
