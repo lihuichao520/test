@@ -63,6 +63,11 @@ const routes = [
     name: 'animation',
     component: () => import(/* webpackChunkName: 'animation' */ '../views/Animation/Animation.vue'),
   },
+  {
+    path: '/test/scroll',
+    name: 'scroll',
+    component: () => import(/* webpackChunkName: 'scroll' */ '../views/TestScroll/TestScroll.vue'),
+  },
 ];
 
 const router = new VueRouter({
