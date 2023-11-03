@@ -71,7 +71,7 @@ const routes = [
   {
     path: '/test/popup',
     name: 'popup',
-    component: () => import(/* webpackChunkName: 'popup' */ '../views/Popup/Popup.vue'),
+    component: () => import(/* webpackChunkName: 'popup' */ '../views/Popup/TestPopup.vue'),
   },
 ];
 

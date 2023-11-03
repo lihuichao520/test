@@ -72,7 +72,7 @@ export default {
     this.scrollHeigth = (scrollElem && scrollElem.scrollHeight) || 0;
     this.clientHeigth = (scrollElem && scrollElem.clientHeight) || 0;
     this.scrollHeigthX = (scrollElemX && scrollElemX.scrollHeight) || 0;
-    this.clientHeigthX = (scrollElemX && scrollElemX.clientHeigth) || 0;
+    this.clientHeigthX = (scrollElemX && scrollElemX.clientHeight) || 0;
   },
   methods: {
     handleTouchStart(e) {

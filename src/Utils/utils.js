@@ -5,11 +5,27 @@ let modalStack = [];
 let zIndexNum = 1000;
 let overlay;
 
+// 动态更新遮罩层
+function mount(Component, data) {
+  const instance = new Vue({
+    props: Component.props,
+    render(h) {
+      return h(Component, {
+        props: this.$props,
+        ...data,
+      });
+    },
+  }).$mount();
+
+  return instance;
+}
+
 const overlayManager = {
   // 获取最新zIndex
   getZIndex(id) {
     if (!id) {
-      return ++zIndexNum;
+      zIndexNum += 1;
+      return zIndexNum;
     }
 
     const overlayExm = modalStack.find((res) => res.config.id === id);
@@ -18,7 +34,8 @@ const overlayManager = {
       return overlay.config.zIndex;
     }
 
-    return ++zIndexNum;
+    zIndexNum += 1;
+    return zIndexNum;
   },
 
   // 获取当前即最外层弹窗实例
@@ -100,21 +117,6 @@ const overlayManager = {
     }
   },
 };
-
-// 动态更新遮罩层
-function mount(Component, data) {
-  const instance = new Vue({
-    props: Component.props,
-    render(h) {
-      return h(Component, {
-        props: this.$props,
-        ...data,
-      });
-    },
-  }).$mount();
-
-  return instance;
-}
 
 // function updateOverlay() {
 //   const { clickHandle, topStack } = overlayManager;
