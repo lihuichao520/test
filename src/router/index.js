@@ -73,6 +73,11 @@ const routes = [
     name: 'popup',
     component: () => import(/* webpackChunkName: 'popup' */ '../views/Popup/TestPopup.vue'),
   },
+  {
+    path: '/test/exceed-line',
+    name: 'exceedline',
+    component: () => import(/* webpackChunkName: 'exceedline' */ '../views/TestExceedLine/TestExceedLine.vue'),
+  },
 ];
 
 const router = new VueRouter({
