@@ -78,6 +78,11 @@ const routes = [
     name: 'exceedline',
     component: () => import(/* webpackChunkName: 'exceedline' */ '../views/TestExceedLine/TestExceedLine.vue'),
   },
+  {
+    path: '/test/test-zhe',
+    name: 'testZhe',
+    component: () => import(/* webpackChunkName: 'testZhe' */ '../views/TestZhe/TestZhe.vue'),
+  },
 ];
 
 const router = new VueRouter({
