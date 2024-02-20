@@ -12,7 +12,7 @@
       <div class="test-border-box"></div>
     </div> -->
   <!-- </div> -->
-  <div class="wrap">
+  <!-- <div class="wrap">
     <div class="content">
       <div class="detail">jhha好好睡</div>
 
@@ -20,6 +20,14 @@
         <button>返回直播间</button>
       </div>
     </div>
+  </div> -->
+  <div class="test-add">
+        <!-- 测试+号 -->
+    <div class='delWrapper'>
+      <div class='del'></div>
+    </div>
+
+    <div class="add"></div>
   </div>
 </template>
 <script>
@@ -150,5 +158,68 @@ export default {
       box-sizing: border-box;
     }
   }
+}
+
+.delWrapper{
+  position: relative;
+  width: 20px;
+  height: 20px;
+  // top: 24px;
+  // right: 20px;
+}
+.del{
+  position: absolute;
+  width:20px;
+  height: 20px;
+  border: 1px solid;
+  border-radius: 20px;
+}
+
+.del::before,.del::after {
+  position: absolute;
+  content: ' ';
+  // background-color: #898989;
+  width: 0px;
+  height: 13px;
+  border: 1px solid #898989;
+  left: 9px;
+  top: 2px;
+}
+.del::before {
+  transform: rotate(45deg);
+}
+.del::after {
+  transform: rotate(-45deg);
+}
+
+.add {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background: #ff3f35;
+}
+
+.add::before,
+.add::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8.3px;
+  height: 1px;
+  // border: 1px solid #fff;
+  background: #fff;
+  // transform: translate(-100%, -100%);
+}
+
+.add::before {
+  // border: 1px solid blue;
+  transform: rotate(45deg) translate(-50%, -50%);
+  transform-origin: top left;
+}
+.add::after {
+  transform: rotate(-45deg) translate(-50%, -50%);
+  transform-origin: top left;
 }
 </style>
