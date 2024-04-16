@@ -83,6 +83,16 @@ const routes = [
     name: 'testZhe',
     component: () => import(/* webpackChunkName: 'testZhe' */ '../views/TestZhe/TestZhe.vue'),
   },
+  {
+    path: '/test/test-flashSale',
+    name: 'testflash',
+    component: () => import(/* webpackChunkName: 'testZhe' */ '../views/TestFlash/FlashSalePcLive.vue'),
+  },
+  {
+    path: '/test/test-compress',
+    name: 'testCompress',
+    component: () => import(/* webpackChunkName: 'testCompress' */ '../views/TestImageCompress/TestCompress.vue'),
+  },
 ];
 
 const router = new VueRouter({
