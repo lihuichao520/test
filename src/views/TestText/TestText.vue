@@ -28,11 +28,33 @@
     </div>
 
     <div class="add"></div>
+    <div class="css-test">
+      设计稿: <input v-model="shejigao" type="number" />
+      设计稿基准: <input v-model="shejigaojizhun" type="number" />
+      css像素: {{ cssNumb }}
+    </div>
+    <div></div>
   </div>
 </template>
 <script>
 export default {
   name: 'TestText',
+  data() {
+    return {
+      shejigao: 0,
+      shejigaojizhun: 414,
+      test: '',
+    };
+  },
+  computed: {
+    cssNumb() {
+      return (750 * this.shejigao) / Number(this.shejigaojizhun);
+    },
+  },
+  methods: {
+    testa() {
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
