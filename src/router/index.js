@@ -93,6 +93,11 @@ const routes = [
     name: 'testCompress',
     component: () => import(/* webpackChunkName: 'testCompress' */ '../views/TestImageCompress/TestCompress.vue'),
   },
+  {
+    path: '/test/test-better-scroll',
+    name: 'testScroll',
+    component: () => import(/* webpackChunkName: 'testCompress' */ '../views/TestBetterScroll/TestBetterScroll.vue'),
+  },
 ];
 
 const router = new VueRouter({

@@ -97,7 +97,7 @@ export default {
   //   },
   //   onCustomEvent(options) {
   //     switch(options.type) {
-  //       case 'wbl_get_screen_shot_result': 
+  //       case 'wbl_get_screen_shot_result':
   //         const args = options && options.args || '';
   //         this.screenShot = args;
   //         break;
@@ -188,6 +188,7 @@ export default {
       if (this.needDeleteSkuTplId === undefined || this.needDeleteSkuTplId === null) return;
 
       // TODO: test demo
+      // eslint-disable-next-line arrow-body-style
       this.skuTplList = this.skuTplList.filter((skuTpl) => {
         // @ts-ignore
         return skuTpl.id !== this.needDeleteSkuTplId;
