@@ -98,6 +98,11 @@ const routes = [
     name: 'testScroll',
     component: () => import(/* webpackChunkName: 'testCompress' */ '../views/TestBetterScroll/TestBetterScroll.vue'),
   },
+  {
+    path: '/test/test-swipe',
+    name: 'testSwipe',
+    component: () => import(/* webpackChunkName: 'testSwipe' */ '../views/TestSwipe/TestSwipe.vue'),
+  },
 ];
 
 const router = new VueRouter({
