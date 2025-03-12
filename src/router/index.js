@@ -103,6 +103,11 @@ const routes = [
     name: 'testSwipe',
     component: () => import(/* webpackChunkName: 'testSwipe' */ '../views/TestSwipe/TestSwipe.vue'),
   },
+  {
+    path: '/test/test-list',
+    name: 'testlist',
+    component: () => import(/* webpackChunkName: 'testlist' */ '../views/TestList/TestList.vue'),
+  },
 ];
 
 const router = new VueRouter({

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Antd from 'ant-design-vue';
 import {
-  Checkbox, CheckboxGroup, Popup, Swipe, SwipeItem,
+  Checkbox, CheckboxGroup, Popup, Swipe, SwipeItem, List, PullRefresh,
 } from 'vant';
 import 'vant/lib/index.css'; // 引入样式
 import App from './App.vue';
@@ -13,6 +13,8 @@ Vue.use(Antd);
 Vue.use(Popup);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
+Vue.use(List);
+Vue.use(PullRefresh);
 
 Vue.config.productionTip = false;
 

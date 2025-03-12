@@ -1,5 +1,8 @@
 <template>
-  <div class="drop-menu">
+  <div class="test" :style="{overflowY: 'auto'}">
+    <div class="test-content" :style="{height: '300px'}"></div>
+
+    <div class="drop-menu">
     <div ref="menuWrap" class="drop-menu__wrap">
       <div class="drop-menu__menu">
         <div class="drop-menu__item" v-for="(tab, index) in tabs" :key="index">
@@ -37,6 +40,10 @@
       </div>
     </div>
   </div>
+
+  <div class="test-content2" :style="{height: '900px'}"></div>
+  </div>
+
 </template>
 <script>
 import MenuItem from '../../components/MenuItem.vue';
