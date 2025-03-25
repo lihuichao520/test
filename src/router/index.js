@@ -111,7 +111,7 @@ const routes = [
   {
     path: '/test/pull-refresh',
     name: 'testlist',
-    component: () => import(/* webpackChunkName: 'testlist' */ '../views/PullRefresh/PullRefresh.vue'),
+    component: () => import(/* webpackChunkName: 'testlist' */ '../views/PullRefresh/index.vue'),
   },
 ];
 
