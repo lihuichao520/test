@@ -1,9 +1,9 @@
 <template>
-<div :class="['pull-refresh']" ref="pullRefresh">
+<div :class="['pull-refresh']" ref="pullRefreshRoot">
   <div
     :class="['pull-refresh__track']"
     :style="trackStyle"
-    ref="track"
+    ref="pullRefreshTrack"
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
     @touchcancel="onTouchEnd"
@@ -43,9 +43,11 @@
 </template>
 
 <script>
+import { useTouch } from '../../Utils/useTouch';
 import loading from './loading.vue';
 
 const DEFAULT_HEAD_HEIGHT = 50;
+const isBrowser = typeof window !== 'undefined';
 
 export default {
   components: { loading },
@@ -129,21 +131,27 @@ export default {
   },
 
   mounted() {
-    this.scrollParent = getScrollParent(this.$refs.root);
-    this.trackElement = this.$refs.track;
+    this.scrollParent = this.getScrollParent(this.$refs.pullRefreshRoot);
+    this.trackElement = this.$refs.pullRefreshTrack;
+
     if (this.trackElement) {
       this.trackElement.addEventListener('touchmove', this.onTouchMove, {
         passive: false,
       });
     }
   },
-
   beforeDestroy() {
     if (this.trackElement) {
       this.trackElement.removeEventListener('touchmove', this.onTouchMove);
     }
   },
   methods: {
+    getScrollTop(el) {
+      const top = 'scrollTop' in el ? el.scrollTop : el.pageYOffset;
+
+      // iOS scroll bounce cause minus scrollTop
+      return Math.max(top, 0);
+    },
     isTouchable() {
       return (
         this.status !== 'loading'
@@ -155,8 +163,10 @@ export default {
       const pullDistance = Number(this.pullDistance || this.headHeight);
       if (distance > pullDistance) {
         if (distance < pullDistance * 2) {
+          // eslint-disable-next-line no-param-reassign
           distance = pullDistance + (distance - pullDistance) / 2;
         } else {
+          // eslint-disable-next-line no-param-reassign
           distance = pullDistance * 1.5 + (distance - pullDistance * 2) / 4;
         }
       }
@@ -188,7 +198,7 @@ export default {
       }, Number(this.successDuration));
     },
     checkPosition(event) {
-      this.reachTop = getScrollTop(this.scrollParent) === 0;
+      this.reachTop = this.getScrollTop(this.scrollParent) === 0;
       if (this.reachTop) {
         this.state.duration = 0;
         this.touch.start(event);
@@ -227,6 +237,30 @@ export default {
           this.setStatus(0);
         }
       }
+    },
+    isElement(node) {
+      return (
+        node
+        && node.nodeType === 1
+        && node.tagName !== 'HTML'
+        && node.tagName !== 'BODY'
+      );
+    },
+    // 获取滚动父元素
+    getScrollParent(el, root = isBrowser ? window : undefined) {
+      let node = el;
+      // 判断元素是否可滚动
+      const overflowScrollReg = /scroll|auto|overlay/i;
+
+      while (node && node !== root && this.isElement(node)) {
+        const { overflowY } = window.getComputedStyle(node);
+        if (overflowScrollReg.test(overflowY)) {
+          return node;
+        }
+        node = node.parentNode;
+      }
+
+      return root;
     },
   },
 };
