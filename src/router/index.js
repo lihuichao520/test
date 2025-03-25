@@ -108,6 +108,11 @@ const routes = [
     name: 'testlist',
     component: () => import(/* webpackChunkName: 'testlist' */ '../views/TestList/TestList.vue'),
   },
+  {
+    path: '/test/pull-refresh',
+    name: 'testlist',
+    component: () => import(/* webpackChunkName: 'testlist' */ '../views/PullRefresh/PullRefresh.vue'),
+  },
 ];
 
 const router = new VueRouter({
