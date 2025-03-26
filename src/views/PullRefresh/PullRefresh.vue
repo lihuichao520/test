@@ -43,9 +43,9 @@
 </template>
 
 <script>
-import { useTouch } from '../../Utils/useTouch';
 import loading from './loading.vue';
 
+const TAP_OFFSET = 5;
 const DEFAULT_HEAD_HEIGHT = 50;
 const isBrowser = typeof window !== 'undefined';
 
@@ -94,9 +94,18 @@ export default {
         duration: 0,
       },
       reachTop: false,
-      touch: useTouch(),
+      // touch: useTouch(),
       scrollParent: null,
       trackElement: null,
+
+      startX: 0,
+      startY: 0,
+      deltaX: 0,
+      deltaY: 0,
+      offsetX: 0,
+      offsetY: 0,
+      direction: '', // '' | 'vertical' | 'horizontal'
+      isTap: true,
     };
   },
   computed: {
@@ -115,6 +124,12 @@ export default {
           ? `translate3d(0, ${this.state.distance}px, 0)`
           : '',
       };
+    },
+    isVertical() {
+      return this.direction === 'vertical';
+    },
+    isHorizontal() {
+      return this.direction === 'horizontal';
     },
   },
   watch: {
@@ -185,6 +200,7 @@ export default {
       } else {
         this.state.status = 'loosing';
       }
+      console.log('=== 当前的状态', this.state.status);
 
       this.$emit('change', {
         status: this.state.status,
@@ -197,11 +213,61 @@ export default {
         this.setStatus(0);
       }, Number(this.successDuration));
     },
+    getDirection(x, y) {
+      if (x > y) {
+        return 'horizontal';
+      }
+      if (y > x) {
+        return 'vertical';
+      }
+      return '';
+    },
+    reset() {
+      this.deltaX = 0;
+      this.deltaY = 0;
+      this.offsetX = 0;
+      this.offsetY = 0;
+      this.direction = '';
+      this.isTap = true;
+    },
+    start(event) {
+      this.reset();
+      this.startX = event.touches[0].clientX;
+      this.startY = event.touches[0].clientY;
+      console.log('==== test touch start x', this.startX, this.startY);
+    },
+    move(event) {
+      const touch = event.touches[0];
+      // safari back will set clientX to negative number
+      this.deltaX = (touch.clientX < 0 ? 0 : touch.clientX) - this.startX;
+      this.deltaY = touch.clientY - this.startY;
+      this.offsetX = Math.abs(this.deltaX);
+      this.offsetY = Math.abs(this.deltaY);
+
+      // lock direction when distance is greater than a certain value
+      const LOCK_DIRECTION_DISTANCE = 10;
+      if (
+        !this.direction
+        || (this.offsetX < LOCK_DIRECTION_DISTANCE
+          && this.offsetY < LOCK_DIRECTION_DISTANCE)
+      ) {
+        this.direction = this.getDirection(this.offsetX, this.offsetY);
+      }
+
+      if (
+        this.isTap
+        && (this.offsetX > TAP_OFFSET || this.offsetY > TAP_OFFSET)
+      ) {
+        this.isTap = false;
+      }
+
+      console.log('==== test touch move', this.deltaY, this.direction);
+    },
     checkPosition(event) {
       this.reachTop = this.getScrollTop(this.scrollParent) === 0;
       if (this.reachTop) {
         this.state.duration = 0;
-        this.touch.start(event);
+        this.start(event);
       }
     },
     onTouchStart(event) {
@@ -215,17 +281,18 @@ export default {
           this.checkPosition(event);
         }
 
-        const { deltaY } = this.touch;
-        this.touch.move(event);
+        this.move(event);
 
-        if (this.reachTop && deltaY >= 0 && this.touch.isVertical()) {
+        console.log('=== test 滑动', this.deltaY);
+
+        if (this.reachTop && this.deltaY >= 0 && this.isVertical) {
           event.preventDefault();
-          this.setStatus(this.ease(deltaY));
+          this.setStatus(this.ease(this.deltaY));
         }
       }
     },
     onTouchEnd() {
-      if (this.reachTop && this.touch.deltaY >= 0 && this.isTouchable()) {
+      if (this.reachTop && this.deltaY >= 0 && this.isTouchable()) {
         this.state.duration = Number(this.animationDuration);
         if (this.status === 'loosing') {
           this.setStatus(Number(this.headHeight), true);
@@ -265,3 +332,29 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.pull-refresh {
+  overflow: hidden;
+
+  &__track {
+    position: relative;
+    height: 100%;
+    transition-property: transform;
+  }
+
+  &__head {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    color: #939393;
+    font-size: 12px;
+    line-height: 17px;
+    text-align: center;
+    transform: translateY(-100%);
+  }
+}
+
+</style>

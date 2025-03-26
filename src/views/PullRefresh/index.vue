@@ -11,6 +11,17 @@
 
       <div>底部</div>
     </pull-refresh>
+    <!-- <van-pull-refresh
+      class="pull-refresh-wrap"
+      ref="pullRefreshWrap"
+      v-model="refreshing"
+      head-height="50"
+      :success-text="loadedTxt"
+      @refresh="onPullRefresh">
+      <div class="test-content">哈哈哈哈哈哈</div>
+
+      <div>底部</div>
+    </van-pull-refresh> -->
   </div>
 </template>
 <script>
@@ -27,6 +38,10 @@ export default {
     };
   },
   components: { PullRefresh },
+  methods: {
+    onPullRefresh() {
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>

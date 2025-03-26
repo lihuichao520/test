@@ -36,6 +36,7 @@ const useTouch = () => {
     reset();
     startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
+    console.log('==== test touch start x', startX, startY);
   };
 
   const move = (event) => {
@@ -62,6 +63,8 @@ const useTouch = () => {
     ) {
       isTap = false;
     }
+
+    console.log('==== test touch move', deltaY, direction);
   };
 
   return {
