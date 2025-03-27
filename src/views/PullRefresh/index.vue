@@ -1,5 +1,8 @@
 <template>
   <div class="test-pull-refresh">
+    <div class="test-tab">
+      jjdjdj
+    </div>
     <pull-refresh
       class="pull-refresh-wrap"
       ref="pullRefreshWrap"
@@ -58,11 +61,22 @@ export default {
   background: #F2F2F2;
 }
 
-.pull-refresh-wrap {
+.test-tab {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: calc(100vh - (90px + constant(safe-area-inset-bottom)));
-  height: calc(100vh - (90px + env(safe-area-inset-bottom)));
-  overflow-y: auto;
+  height: 44px;
+  background: lightblue;
+}
+
+.pull-refresh-wrap {
+  padding-top: 44px;
+  width: 100%;
+  min-height: 100vh;
+  // height: calc(100vh - (90px + constant(safe-area-inset-bottom)));
+  // height: calc(100vh - (90px + env(safe-area-inset-bottom)));
+  // overflow-y: auto;
 }
 
 .test-content {
