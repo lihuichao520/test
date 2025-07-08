@@ -1,29 +1,42 @@
 <template>
   <div class="test-action-bar safe-area-bottom safe-padding-area">
-    <div class="action-bar">
-      <div class="action-left">
-        <ActionIcon :actionTitle="'店铺'"/>
-        <ActionIcon :actionTitle="'客服'"/>
-        <ActionIcon :actionTitle="'购物车'"/>
-      </div>
-      <div class="action-right">
-        <ActionButton type="yellow" btnTxt="加入购物车"/>
-        <ActionButton btnTxt="立即秒杀" />
-      </div>
+    <div :class="['action-bar', isSingle ? 'action-bar_single' : '']">
+      <template v-if="isSingle">
+        <slot></slot>
+      </template>
+      <template v-else>
+        <div class="action-left">
+          <!-- <ActionIcon :actionTitle="'店铺'"/>
+          <ActionIcon :actionTitle="'客服'"/>
+          <ActionIcon :actionTitle="'购物车'"/> -->
+          <slot name="action-left"></slot>
+        </div>
+        <div class="action-right">
+          <!-- <ActionButton type="yellow" btnTxt="加入购物车"/>
+          <ActionButton btnTxt="立即秒杀" /> -->
+          <slot name="action-right"></slot>
+        </div>
+      </template>
     </div>
   </div>
 </template>
 <script>
-import ActionButton from './ActionButton.vue';
-import ActionIcon from './ActionIcon.vue';
+// import ActionButton from './ActionButton.vue';
+// import ActionIcon from './ActionIcon.vue';
 
 export default {
-  components: { ActionIcon, ActionButton },
+  // components: { ActionIcon, ActionButton },
   name: 'TestActionBar',
   data() {
     return {
 
     };
+  },
+  props: {
+    isSingle: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
@@ -67,6 +80,10 @@ export default {
     margin-left: 14Px;
     // background: lightpink;
   }
+}
+
+.action-bar_single {
+  justify-content: center;
 }
 
 /* 屏幕宽度小于360px：安全边距12px */

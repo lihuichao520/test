@@ -116,7 +116,7 @@ const routes = [
   {
     path: '/test/test-action-bar',
     name: 'testBar',
-    component: () => import(/* webpackChunkName: 'testlist' */ '../views/TestActionBar/TestActionBar.vue'),
+    component: () => import(/* webpackChunkName: 'testlist' */ '../views/TestActionBar/Test.vue'),
   },
 ];
 
