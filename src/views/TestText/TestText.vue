@@ -34,6 +34,8 @@
       css像素: {{ cssNumb }}
     </div>
     <div></div>
+
+    <div class="reload-btn">重新加载</div>
   </div>
 </template>
 <script>
@@ -244,4 +246,36 @@ export default {
   transform: rotate(-45deg) translate(-50%, -50%);
   transform-origin: top left;
 }
+
+.reload-btn {
+      position: relative;
+      margin: 0 auto;
+      width: 132px;
+      height: 44px;
+      text-align: center;
+      color: #ff8200;
+      font-family: "PingFang SC";
+      font-weight: 500;
+      font-size: 17px;
+      line-height: 44px;
+      border-radius: 22px;
+      box-sizing: border-box;
+
+      &:active {
+        background: #939393;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border: 1Px solid #ff8200;
+        border-radius: 44px;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+      }
+    }
 </style>
