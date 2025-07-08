@@ -7,7 +7,8 @@
         <ActionIcon :actionTitle="'购物车'"/>
       </div>
       <div class="action-right">
-        <ActionButton />
+        <ActionButton type="yellow" btnTxt="加入购物车"/>
+        <ActionButton btnTxt="立即秒杀" />
       </div>
     </div>
   </div>
@@ -59,10 +60,12 @@ export default {
   }
 
   .action-right {
+    display: flex;
+    align-items: center;
     flex: 1;
     height: 44Px;
     margin-left: 14Px;
-    background: lightpink;
+    // background: lightpink;
   }
 }
 
