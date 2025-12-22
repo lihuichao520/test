@@ -53,6 +53,17 @@ export default {
   bottom: 0;
   box-sizing: border-box;
   background: lightyellow;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1Px;
+    background: green;
+    transform: scaleY(0.5);
+    transform-origin: 0 0;
+  }
 }
 
 /* 安全边距媒体查询 */
