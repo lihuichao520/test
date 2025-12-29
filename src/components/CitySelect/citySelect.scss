@@ -1,0 +1,169 @@
+.city-select-pop-up {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+
+  .mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.40);
+    z-index: 2000;
+  }
+}
+
+.city-select-wrapper {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  // padding: 0px 9*$px414To375 0 9*$px414To375;
+  width: 100%;
+  height: 549*$px414To375;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 10*$px414To375 10*$px414To375  0 0;
+  z-index: 2001;
+  animation: slideIn 200ms ease-in;
+
+
+  @keyframes slideIn {
+    0% { height: 0; }
+    100% { height: 549*$px414To375; }
+  }
+
+  .city-select-title {
+    position: relative;
+    width: 100%;
+    height: 48*$px414To375;
+    font-family: PingFangSC-Medium;
+    font-size: 17*$px414To375;
+    color: #333333;
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 48*$px414To375;
+    background-color: #fff;
+    border-radius: 10*$px414To375 10*$px414To375  0 0;
+
+    .close {
+      position: absolute;
+      width: 12*$px414To375;
+      height: 12*$px414To375;
+      top: 18*$px414To375;
+      right: 16*$px414To375;
+      background: url(../../assets/common/drawer-close.png) no-repeat;
+      background-size: 100% 100%;
+    }
+  }
+
+  .hairline-border-bottom {
+    border-bottom-color: #e6e6e6;
+  }
+
+  .city-select-container {
+    position: relative;
+    padding: 0 12*$px414To375 0 14*$px414To375;
+    width: 100%;
+    height: 501*$px414To375;
+    box-sizing: border-box;
+    // overflow-x: hidden;
+    // overflow-y: auto;
+    overflow: hidden;
+  }
+
+  .city-select-content {
+    padding-bottom: 100*$px414To375;// 501*$px414To375;
+  }
+
+  // 热门城市
+  .hot-city {
+    font-size: 0;
+    line-height: 0;
+
+    &__title {
+      padding: 12*$px414To375 0 12*$px414To375 6*$px414To375;
+      color: #333333;
+      font-family: PingFang SC;
+      font-size: 12*$px414To375;
+      line-height: 12*$px414To375;
+      letter-spacing: 0px;
+      text-align: left;
+    }
+
+    &__list {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      padding-right: 60*$px414To375;
+    }
+
+    &__item {
+      display: inline-block;
+      margin-right: 9*$px414To375;
+      margin-bottom: 8*$px414To375;
+      padding: 0 19*$px414To375 0 18*$px414To375;
+      min-width: 63*$px414To375;
+      height: 30*$px414To375;
+      color: #636363;
+      font-family: PingFang SC;
+      font-size: 13*$px414To375;
+      line-height: 30*$px414To375;
+      letter-spacing: 0;
+      text-align: center;
+      border-radius: 15*$px414To375;
+      background: #F8F8F7;
+      box-sizing: border-box;
+    }
+  }
+
+  // 按字母城市列表
+  .city-sort-box {
+    margin-top: -8*$px414To375;
+    padding-right: 30*$px414To375;
+    box-sizing: border-box;
+  }
+
+  .city-list {
+    width: 100%;
+
+    .sort-letter {
+      padding-top: 22*$px414To375;
+      padding-left: 1*$px414To375;
+      color: #979797;
+      font-family: PingFang SC;
+      font-size: 14*$px414To375;
+      line-height: 14*$px414To375;
+      letter-spacing: 0;
+      text-align: left;
+      box-sizing: border-box;
+    }
+
+    .sort-name {
+      padding-top: 30*$px414To375;
+      color: #333333;
+      font-family: PingFang SC;
+      font-size: 14*$px414To375;
+      line-height: 14*$px414To375;
+      letter-spacing: 0px;
+      text-align: left;
+    }
+  }
+
+
+}
+
+
+/* 屏幕宽度550px以上：安全边距14px */
+@media (min-width: 550px) {
+  .city-select-wrapper {
+    height: 75vh;
+  }
+}
