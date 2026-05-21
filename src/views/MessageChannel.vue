@@ -37,6 +37,16 @@ self.onmessage = (e) => {
   }
 }
 
+
+// Object.create()实现
+function create(proto) {
+  function F () {}
+
+  F.prototype = proto;
+
+  return new F();
+}
+
 export default {
   data() {
     return {
