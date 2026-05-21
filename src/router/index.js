@@ -118,6 +118,11 @@ const routes = [
     name: 'testBar',
     component: () => import(/* webpackChunkName: 'testlist' */ '../views/TestActionBar/Test.vue'),
   },
+  {
+    path: '/test/test-vue',
+    name: 'testVue',
+    component: () => import(/* webpackChunkName: 'testVue' */ '../views/TestVue/Test.vue'),
+  },
 ];
 
 const router = new VueRouter({
